@@ -42,7 +42,7 @@ protected void paintComponent(Graphics g) {
 }
 
 // Méthode pour vérifier si une carte a été déposée dans la zone
-    public void verifierCarte(Carte_ carte) {
+    public void verifierCarte(Carte_Ihm carte) {
     Point centre = carte.getCentreCarte();
     Rectangle zone = this.getBounds();
 

@@ -1,4 +1,5 @@
 package ilu4.projet_pirate;
+import Vue.NewJFrame;
 import Vue.Vue;
 import javax.swing.*;
 import javax.swing.SwingUtilities;
@@ -10,6 +11,7 @@ import javax.swing.SwingUtilities;
 public class Projet_Pirate {
 
 private static Vue fenetre;
+//private static NewJFrame fenetre;
 
     public static void main(String[] args) {
 
