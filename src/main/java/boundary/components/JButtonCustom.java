@@ -58,7 +58,11 @@ public class JButtonCustom extends JButton{
             }
         });
         
-        defaultIcon = ImageIO.read(new File("ressources/ButtonNormal.png"));
-        pressedIcon = ImageIO.read(new File("ressources/ButtonPressed.png"));
+        setIcon();
+    }
+    
+    private void setIcon() throws IOException{
+        defaultIcon = ImageIO.read(new File("src/main/java/boundary/ressources/ButtonNormal.png"));
+        pressedIcon = ImageIO.read(new File("src/main/java/boundary/ressources/ButtonPressed.png"));
     }
 }

@@ -7,6 +7,9 @@ package boundary;
 import java.io.File;
 import java.io.IOException;
 import boundary.components.*;
+import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  *
@@ -33,27 +36,75 @@ public class FrameJeu extends javax.swing.JFrame {
         jPanelParent = new javax.swing.JPanel();
         menuPanel = new javax.swing.JPanel();
         menuPanelBackground = new boundary.components.JPanelWithBackground();
-        jButtonCustom1 = new boundary.components.JButtonCustom();
+        startBouton = new boundary.components.JButtonCustom();
         jLabel1 = new javax.swing.JLabel();
+        optionBouton = new boundary.components.JButtonCustom();
+        quitBouton = new boundary.components.JButtonCustom();
         plateauPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         optionPanel = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Argonautes");
+        setFont(new java.awt.Font("Windlass", 0, 10)); // NOI18N
+        setIconImage(getIcon("Icon23.png"));
 
         jPanelParent.setLayout(new java.awt.CardLayout());
 
+        menuPanel.setToolTipText("");
+
         try{
-            menuPanelBackground.setImage("src/main/java/ressources/pirates_background.png");
+            menuPanelBackground.setImage("src/main/java/boundary/ressources/pirates_background.png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
             System.out.print("Background not found"); // or handle the error
         }
         menuPanelBackground.repaint();
 
-        jButtonCustom1.setText("Start");
+        startBouton.setText("Start");
+        startBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        try{
+            startBouton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        startBouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBoutonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
         jLabel1.setText("Argonautes");
+
+        optionBouton.setText("Option");
+        optionBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        try{
+            optionBouton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        optionBouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionBoutonActionPerformed(evt);
+            }
+        });
+
+        quitBouton.setText("Quit");
+        quitBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        try{
+            quitBouton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        quitBouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitBoutonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuPanelBackgroundLayout = new javax.swing.GroupLayout(menuPanelBackground);
         menuPanelBackground.setLayout(menuPanelBackgroundLayout);
@@ -66,17 +117,24 @@ public class FrameJeu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(69, 69, 69))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelBackgroundLayout.createSequentialGroup()
-                        .addComponent(jButtonCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(startBouton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(optionBouton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quitBouton, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                         .addGap(81, 81, 81))))
         );
         menuPanelBackgroundLayout.setVerticalGroup(
             menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelBackgroundLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jButtonCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(startBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(optionBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(quitBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
@@ -92,28 +150,66 @@ public class FrameJeu extends javax.swing.JFrame {
 
         jPanelParent.add(menuPanel, "card2");
 
+        jLabel2.setText("Plateau Here");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout plateauPanelLayout = new javax.swing.GroupLayout(plateauPanel);
         plateauPanel.setLayout(plateauPanelLayout);
         plateauPanelLayout.setHorizontalGroup(
             plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(plateauPanelLayout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addGroup(plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         plateauPanelLayout.setVerticalGroup(
             plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(plateauPanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel2)
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         jPanelParent.add(plateauPanel, "card3");
+
+        jButton2.setText("jButton1");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Option Here");
 
         javax.swing.GroupLayout optionPanelLayout = new javax.swing.GroupLayout(optionPanel);
         optionPanel.setLayout(optionPanelLayout);
         optionPanelLayout.setHorizontalGroup(
             optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(optionPanelLayout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addGroup(optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         optionPanelLayout.setVerticalGroup(
             optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(optionPanelLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel3)
+                .addGap(41, 41, 41)
+                .addComponent(jButton2)
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         jPanelParent.add(optionPanel, "card4");
@@ -136,6 +232,43 @@ public class FrameJeu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void startBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBoutonActionPerformed
+        switchPanel(plateauPanel);
+    }//GEN-LAST:event_startBoutonActionPerformed
+
+    private void optionBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBoutonActionPerformed
+        switchPanel(optionPanel);
+    }//GEN-LAST:event_optionBoutonActionPerformed
+
+    private void quitBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBoutonActionPerformed
+        dispose();
+    }//GEN-LAST:event_quitBoutonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        switchPanel(menuPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        switchPanel(menuPanel);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void switchPanel (JPanel p){
+        jPanelParent.removeAll();
+        jPanelParent.add(p);
+        repaint();
+        revalidate();
+    }
+    
+    private Image getIcon(String filename){
+        Image res = null;
+        try{
+            res  = ImageIO.read(new File("src/main/java/boundary/ressources/" + filename));
+        }catch(IOException e){
+            System.out.print("Icon not found");
+        }
+        return res;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -172,12 +305,18 @@ public class FrameJeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private boundary.components.JButtonCustom jButtonCustom1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanelParent;
     private javax.swing.JPanel menuPanel;
     private boundary.components.JPanelWithBackground menuPanelBackground;
+    private boundary.components.JButtonCustom optionBouton;
     private javax.swing.JPanel optionPanel;
     private javax.swing.JPanel plateauPanel;
+    private boundary.components.JButtonCustom quitBouton;
+    private boundary.components.JButtonCustom startBouton;
     // End of variables declaration//GEN-END:variables
 }
