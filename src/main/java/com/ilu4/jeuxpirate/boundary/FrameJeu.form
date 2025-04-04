@@ -76,7 +76,7 @@
           <SubComponents>
             <Container class="boundary.components.JPanelWithBackground" name="menuPanelBackground">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;menuPanelBackground.setImage(&quot;src/main/java/boundary/ressources/pirates_background.png&quot;);&#xd;&#xa;}catch (IOException e) {&#xd;&#xa;    String userDirectory = new File(&quot;&quot;).getAbsolutePath();&#xd;&#xa;    System.out.print(&quot;Background not found&quot;); // or handle the error&#xd;&#xa;}&#xd;&#xa;menuPanelBackground.repaint();"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;menuPanelBackground.setImage(&quot;src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png&quot;);&#xd;&#xa;}catch (IOException e) {&#xd;&#xa;    String userDirectory = new File(&quot;&quot;).getAbsolutePath();&#xd;&#xa;    System.out.print(&quot;Background not found&quot;); // or handle the error&#xd;&#xa;}&#xd;&#xa;menuPanelBackground.repaint();"/>
               </AuxValues>
 
               <Layout>
@@ -242,7 +242,7 @@
           <SubComponents>
             <Container class="boundary.components.JPanelWithBackground" name="optionPanelBackground">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;optionPanelBackground.setImage(&quot;src/main/java/boundary/ressources/pirates_background.png&quot;);&#xd;&#xa;}catch (IOException e) {&#xd;&#xa;    String userDirectory = new File(&quot;&quot;).getAbsolutePath();&#xd;&#xa;    System.out.print(&quot;Background not found&quot;); // or handle the error&#xd;&#xa;}&#xd;&#xa;optionPanelBackground.repaint();&#xd;&#xa;"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa;optionPanelBackground.setImage(&quot;src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png&quot;);&#xd;&#xa;}catch (IOException e) {&#xd;&#xa;    String userDirectory = new File(&quot;&quot;).getAbsolutePath();&#xd;&#xa;    System.out.print(&quot;Background not found&quot;); // or handle the error&#xd;&#xa;}&#xd;&#xa;optionPanelBackground.repaint();&#xd;&#xa;"/>
               </AuxValues>
 
               <Layout>
