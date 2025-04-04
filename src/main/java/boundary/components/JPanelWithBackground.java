@@ -7,6 +7,7 @@ package boundary.components;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.io.*;
 import java.nio.file.Path;
 import javax.imageio.ImageIO;
@@ -32,6 +33,7 @@ public class JPanelWithBackground extends JPanel {
     // Draw the background image.
     if(backgroundImage != null){
         Graphics2D g2d = (Graphics2D)g;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.drawImage(backgroundImage, 0,0, getWidth(), getHeight(), this);
     }
     
