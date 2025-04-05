@@ -6,7 +6,7 @@ package com.ilu4.jeuxpirate.boundary;
 
 import java.io.File;
 import java.io.IOException;
-import com.ilu4.jeuxpirate.boundary.components.*;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -19,8 +19,13 @@ public class FrameJeu extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameJeu
+     * @param fullScreen
      */
-    public FrameJeu() {
+    public FrameJeu(boolean fullScreen) {
+        
+        if (fullScreen) {
+            setUndecorated(true);
+        }
         initComponents();
     }
 
@@ -55,10 +60,12 @@ public class FrameJeu extends javax.swing.JFrame {
         optionPanelRound = new boundary.components.JPanelRound();
         resolutionLabel = new javax.swing.JLabel();
         leftArrowRes = new boundary.components.JButtonCustom();
-        RightArrowRes = new boundary.components.JButtonCustom();
+        rightArrowRes = new boundary.components.JButtonCustom();
         resolutionNbLabel = new javax.swing.JLabel();
         volumeLabel = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
+        volumeSlider = new javax.swing.JSlider();
+        fullScreenLabel = new javax.swing.JLabel();
+        fullScreenCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Argonautes");
@@ -225,10 +232,10 @@ public class FrameJeu extends javax.swing.JFrame {
             }
         });
 
-        RightArrowRes.setText(">");
-        RightArrowRes.addActionListener(new java.awt.event.ActionListener() {
+        rightArrowRes.setText(">");
+        rightArrowRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RightArrowResActionPerformed(evt);
+                rightArrowResActionPerformed(evt);
             }
         });
 
@@ -239,6 +246,15 @@ public class FrameJeu extends javax.swing.JFrame {
         volumeLabel.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
         volumeLabel.setText("Volume :");
 
+        fullScreenLabel.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        fullScreenLabel.setText("Plein écran :");
+
+        fullScreenCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullScreenCheckBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout optionPanelRoundLayout = new javax.swing.GroupLayout(optionPanelRound);
         optionPanelRound.setLayout(optionPanelRoundLayout);
         optionPanelRoundLayout.setHorizontalGroup(
@@ -247,16 +263,19 @@ public class FrameJeu extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(resolutionLabel)
-                    .addComponent(volumeLabel))
-                .addGap(31, 31, 31)
-                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                        .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(resolutionNbLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(RightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(volumeLabel)
+                    .addComponent(fullScreenLabel))
+                .addGap(27, 27, 27)
+                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(optionPanelRoundLayout.createSequentialGroup()
+                            .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(resolutionNbLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(37, 37, 37)
+                            .addComponent(rightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(volumeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fullScreenCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         optionPanelRoundLayout.setVerticalGroup(
@@ -266,13 +285,19 @@ public class FrameJeu extends javax.swing.JFrame {
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resolutionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resolutionNbLabel))
-                .addGap(18, 18, 18)
-                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(13, 13, 13)
+                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(fullScreenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(fullScreenCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(volumeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(163, Short.MAX_VALUE))
+                    .addGroup(optionPanelRoundLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(volumeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout optionPanelBackgroundLayout = new javax.swing.GroupLayout(optionPanelBackground);
@@ -370,13 +395,35 @@ public class FrameJeu extends javax.swing.JFrame {
         setSize(Integer.parseInt(res[0]), Integer.parseInt(res[1]));
     }//GEN-LAST:event_leftArrowResActionPerformed
 
-    private void RightArrowResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightArrowResActionPerformed
+    private void rightArrowResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightArrowResActionPerformed
         currentRes = (currentRes + 1)%resolution.length;
         resolutionNbLabel.setText(resolution[currentRes]);
         
         String[] res = (resolution[currentRes]).split("[x]");
         setSize(Integer.parseInt(res[0]), Integer.parseInt(res[1]));
-    }//GEN-LAST:event_RightArrowResActionPerformed
+    }//GEN-LAST:event_rightArrowResActionPerformed
+
+    private void fullScreenCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullScreenCheckBoxActionPerformed
+        if (fullScreenCheckBox.isSelected()) {
+            FrameJeu newFrame = new FrameJeu(true);
+            this.dispose();
+            newFrame.setExtendedState(MAXIMIZED_BOTH);
+            newFrame.fullScreenCheckBox.setSelected(true);
+            newFrame.leftArrowRes.setEnabled(false);
+            newFrame.rightArrowRes.setEnabled(false);
+            newFrame.resolutionLabel.setEnabled(false);
+            newFrame.resolutionNbLabel.setEnabled(false);
+            newFrame.setVisible(true);
+        } else {
+            FrameJeu newFrame = new FrameJeu(false);
+            this.dispose();
+            newFrame.leftArrowRes.setEnabled(true);
+            newFrame.rightArrowRes.setEnabled(true);
+            newFrame.resolutionLabel.setEnabled(true);
+            newFrame.resolutionNbLabel.setEnabled(true);
+            newFrame.setVisible(true);
+        }
+    }//GEN-LAST:event_fullScreenCheckBoxActionPerformed
 
     private void switchPanel (JPanel p){
         jPanelParent.removeAll();
@@ -424,18 +471,19 @@ public class FrameJeu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new FrameJeu().setVisible(true);
+                new FrameJeu(false).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private boundary.components.JButtonCustom RightArrowRes;
+    private javax.swing.JCheckBox fullScreenCheckBox;
+    private javax.swing.JLabel fullScreenLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanelParent;
-    private javax.swing.JSlider jSlider1;
     private boundary.components.JButtonCustom leftArrowRes;
     private boundary.components.JButtonCustom menuBoutonOp;
     private javax.swing.JPanel menuPanel;
@@ -448,10 +496,12 @@ public class FrameJeu extends javax.swing.JFrame {
     private boundary.components.JButtonCustom quitBouton;
     private javax.swing.JLabel resolutionLabel;
     private javax.swing.JLabel resolutionNbLabel;
+    private boundary.components.JButtonCustom rightArrowRes;
     private boundary.components.JButtonCustom startBouton;
     private javax.swing.JLabel titleMenu;
     private javax.swing.JLabel titleOption1;
     private javax.swing.JLabel volumeLabel;
+    private javax.swing.JSlider volumeSlider;
     // End of variables declaration//GEN-END:variables
     private final String[] resolution ={"720x480", "1280x720", "1920x1080"};
     private int currentRes = 0;
