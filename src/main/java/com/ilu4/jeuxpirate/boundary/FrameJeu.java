@@ -72,7 +72,7 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanel.setToolTipText("");
 
         try{
-            menuPanelBackground.setImage("pirates_background.png");
+            menuPanelBackground.setImage("pirates_background(4).png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
             System.out.print("Background not found"); // or handle the error
@@ -80,6 +80,7 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanelBackground.repaint();
 
         titleMenu.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
+        titleMenu.setForeground(new java.awt.Color(255, 255, 255));
         titleMenu.setText("Argonautes");
 
         startButton.setText("Start");
@@ -137,15 +138,15 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanelBackgroundLayout.setVerticalGroup(
             menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelBackgroundLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(titleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(33, 33, 33)
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGap(198, 198, 198))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
@@ -173,14 +174,14 @@ public class FrameJeu extends javax.swing.JFrame {
             plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plateauPanelLayout.createSequentialGroup()
                 .addComponent(plateau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanelParent.add(plateauPanel, "card3");
 
         optionPanelBackground.setPreferredSize(new java.awt.Dimension(720, 480));
         try{
-            optionPanelBackground.setImage("pirates_background.png");
+            optionPanelBackground.setImage("pirates_background(4).png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
             System.out.print("Background not found"); // or handle the error
@@ -265,6 +266,7 @@ public class FrameJeu extends javax.swing.JFrame {
         );
 
         titleOption.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
+        titleOption.setForeground(new java.awt.Color(255, 255, 255));
         titleOption.setText("Argonautes");
 
         menuBoutonOp.setText("Retrun Menu");
@@ -311,9 +313,7 @@ public class FrameJeu extends javax.swing.JFrame {
         );
         optionPanelLayout.setVerticalGroup(
             optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(optionPanelLayout.createSequentialGroup()
-                .addComponent(optionPanelBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(optionPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanelParent.add(optionPanel, "card5");
@@ -328,7 +328,7 @@ public class FrameJeu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelParent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
