@@ -1,0 +1,15 @@
+# NetBeans
+nbproject/private/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# General
+*.class
+target/
+build/
+out/
