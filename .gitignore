@@ -9,6 +9,7 @@ nbproject/private/
 .vscode/
 
 # General
+.settings/
 *.class
 target/
 build/
