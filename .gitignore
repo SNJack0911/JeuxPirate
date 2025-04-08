@@ -7,10 +7,12 @@ nbproject/private/
 
 # VSCode
 .vscode/
-
+.project
+.classpath
 # General
 .settings/
 *.class
 target/
 build/
 out/
+bin/
