@@ -1,4 +1,4 @@
-package com.ilu4.jeuxpirate.noyau;
+package noyau;
 
 import java.util.ArrayList;
 import java.util.List;
