@@ -17,5 +17,3 @@ Dans la branche main ce trouve les fichier qui fonctionne. Les autres branches c
 ##### Le package boundary contient l'IHM (et l'affiche console). Il permet de recuperer les entrées utilisateur. 
 
 ###
-
-
