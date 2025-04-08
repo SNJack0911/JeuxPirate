@@ -35,31 +35,30 @@ public class FrameJeu extends javax.swing.JFrame {
 
         jPanelParent = new javax.swing.JPanel();
         menuPanel = new javax.swing.JPanel();
-        menuPanelBackground = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
+        menuPanelBackground = new boundary.components.JPanelWithBackground();
+        startBouton = new boundary.components.JButtonCustom();
         titleMenu = new javax.swing.JLabel();
-        startButton = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
-        optionButton = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
-        quitButton = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
+        optionBouton = new boundary.components.JButtonCustom();
+        quitBouton = new boundary.components.JButtonCustom();
         plateauPanel = new javax.swing.JPanel();
-        plateau1 = new com.ilu4.jeuxpirate.boundary.Plateau();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         optionPanel = new javax.swing.JPanel();
-        optionPanelBackground = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
-        optionPanelRound = new com.ilu4.jeuxpirate.boundary.components.JPanelRound();
-        resolutionLabel = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        volumeLabel = new javax.swing.JLabel();
-        resolutionNbLabel = new javax.swing.JLabel();
-        volumeLabel1 = new javax.swing.JLabel();
-        rightArrowRes = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
-        leftArrowRes = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
-        fullscreenCheckBox = new javax.swing.JCheckBox();
-        titleOption = new javax.swing.JLabel();
-        menuBoutonOp = new com.ilu4.jeuxpirate.boundary.components.JButtonCustom();
+        optionPanelBackground = new boundary.components.JPanelWithBackground();
+        menuBoutonOp = new boundary.components.JButtonCustom();
         try{
             menuBoutonOp.setImage();
         }catch (IOException e){
-            System.out.print("Button Icon Not Found");
+            System.out.print("Button Icon Not found");
         }
+        titleOption1 = new javax.swing.JLabel();
+        optionPanelRound = new boundary.components.JPanelRound();
+        resolutionLabel = new javax.swing.JLabel();
+        leftArrowRes = new boundary.components.JButtonCustom();
+        RightArrowRes = new boundary.components.JButtonCustom();
+        resolutionNbLabel = new javax.swing.JLabel();
+        volumeLabel = new javax.swing.JLabel();
+        jSlider1 = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Argonautes");
@@ -72,53 +71,52 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanel.setToolTipText("");
 
         try{
-            menuPanelBackground.setImage("pirates_background(4).png");
+            menuPanelBackground.setImage("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
             System.out.print("Background not found"); // or handle the error
         }
         menuPanelBackground.repaint();
 
+        startBouton.setText("Start");
+        startBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        try{
+            startBouton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        startBouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBoutonActionPerformed(evt);
+            }
+        });
+
         titleMenu.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
-        titleMenu.setForeground(new java.awt.Color(255, 255, 255));
         titleMenu.setText("Argonautes");
 
-        startButton.setText("Start");
-        startButton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        optionBouton.setText("Option");
+        optionBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
         try{
-            startButton.setImage();
+            optionBouton.setImage();
         }catch (IOException e){
-            System.out.print("Button Icon Not Found");
+            System.out.print("Button Icon Not found");
         }
-        startButton.addActionListener(new java.awt.event.ActionListener() {
+        optionBouton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startButtonActionPerformed(evt);
+                optionBoutonActionPerformed(evt);
             }
         });
 
-        optionButton.setText("Option");
-        optionButton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        quitBouton.setText("Quit");
+        quitBouton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
         try{
-            optionButton.setImage();
+            quitBouton.setImage();
         }catch (IOException e){
-            System.out.print("Button Icon Not Found");
+            System.out.print("Button Icon Not found");
         }
-        optionButton.addActionListener(new java.awt.event.ActionListener() {
+        quitBouton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optionButtonActionPerformed(evt);
-            }
-        });
-
-        quitButton.setText("Quit");
-        quitButton.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
-        try{
-            quitButton.setImage();
-        }catch (IOException e){
-            System.out.print("Button Icon Not Found");
-        }
-        quitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitButtonActionPerformed(evt);
+                quitBoutonActionPerformed(evt);
             }
         });
 
@@ -126,34 +124,38 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanelBackground.setLayout(menuPanelBackgroundLayout);
         menuPanelBackgroundLayout.setHorizontalGroup(
             menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelBackgroundLayout.createSequentialGroup()
-                .addContainerGap(362, Short.MAX_VALUE)
-                .addGroup(menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titleMenu)
-                    .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+            .addGroup(menuPanelBackgroundLayout.createSequentialGroup()
+                .addContainerGap(338, Short.MAX_VALUE)
+                .addGroup(menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelBackgroundLayout.createSequentialGroup()
+                        .addComponent(titleMenu)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelBackgroundLayout.createSequentialGroup()
+                        .addGroup(menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(optionBouton, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                            .addComponent(quitBouton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(startBouton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(81, 81, 81))))
         );
         menuPanelBackgroundLayout.setVerticalGroup(
             menuPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelBackgroundLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(62, 62, 62)
                 .addComponent(titleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(startBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(optionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198))
+                .addComponent(optionBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(quitBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuPanelBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menuPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,51 +164,59 @@ public class FrameJeu extends javax.swing.JFrame {
 
         jPanelParent.add(menuPanel, "card2");
 
+        jLabel2.setText("Plateau Here");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout plateauPanelLayout = new javax.swing.GroupLayout(plateauPanel);
         plateauPanel.setLayout(plateauPanelLayout);
         plateauPanelLayout.setHorizontalGroup(
             plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plateauPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(plateau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(plateauPanelLayout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addGroup(plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
         plateauPanelLayout.setVerticalGroup(
             plateauPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plateauPanelLayout.createSequentialGroup()
-                .addComponent(plateau1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(110, 110, 110)
+                .addComponent(jLabel2)
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         jPanelParent.add(plateauPanel, "card3");
 
-        optionPanelBackground.setPreferredSize(new java.awt.Dimension(720, 480));
         try{
-            optionPanelBackground.setImage("pirates_background(4).png");
+            optionPanelBackground.setImage("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
             System.out.print("Background not found"); // or handle the error
         }
-        menuPanelBackground.repaint();
+        optionPanelBackground.repaint();
+
+        menuBoutonOp.setText("Retrun To Menu");
+        menuBoutonOp.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        menuBoutonOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBoutonOpActionPerformed(evt);
+            }
+        });
+
+        titleOption1.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
+        titleOption1.setText("Argonautes");
 
         resolutionLabel.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
         resolutionLabel.setText("Resolution :");
-
-        volumeLabel.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
-        volumeLabel.setText("Volume :");
-
-        resolutionNbLabel.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
-        resolutionNbLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        resolutionNbLabel.setText("720x480");
-
-        volumeLabel1.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
-        volumeLabel1.setText("Fullscreen :");
-
-        rightArrowRes.setText(">");
-        rightArrowRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightArrowResActionPerformed(evt);
-            }
-        });
 
         leftArrowRes.setText("<");
         leftArrowRes.addActionListener(new java.awt.event.ActionListener() {
@@ -215,67 +225,55 @@ public class FrameJeu extends javax.swing.JFrame {
             }
         });
 
+        RightArrowRes.setText(">");
+        RightArrowRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RightArrowResActionPerformed(evt);
+            }
+        });
+
+        resolutionNbLabel.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        resolutionNbLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        resolutionNbLabel.setText("720x480");
+
+        volumeLabel.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
+        volumeLabel.setText("Volume :");
+
         javax.swing.GroupLayout optionPanelRoundLayout = new javax.swing.GroupLayout(optionPanelRound);
         optionPanelRound.setLayout(optionPanelRoundLayout);
         optionPanelRoundLayout.setHorizontalGroup(
             optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(19, 19, 19)
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                            .addComponent(volumeLabel)
-                            .addGap(63, 63, 63))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionPanelRoundLayout.createSequentialGroup()
-                            .addComponent(resolutionLabel)
-                            .addGap(38, 38, 38)))
-                    .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                        .addComponent(volumeLabel1)
-                        .addGap(39, 39, 39)))
+                    .addComponent(resolutionLabel)
+                    .addComponent(volumeLabel))
+                .addGap(31, 31, 31)
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                        .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(resolutionNbLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(rightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fullscreenCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addComponent(RightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         optionPanelRoundLayout.setVerticalGroup(
             optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(76, 76, 76)
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resolutionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resolutionNbLabel)
-                    .addComponent(rightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(volumeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(optionPanelRoundLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(fullscreenCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(leftArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RightArrowRes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resolutionNbLabel))
                 .addGap(18, 18, 18)
                 .addGroup(optionPanelRoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volumeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
-
-        titleOption.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
-        titleOption.setForeground(new java.awt.Color(255, 255, 255));
-        titleOption.setText("Argonautes");
-
-        menuBoutonOp.setText("Retrun Menu");
-        menuBoutonOp.setFont(new java.awt.Font("Windlass", 0, 14)); // NOI18N
-        menuBoutonOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuBoutonOpActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout optionPanelBackgroundLayout = new javax.swing.GroupLayout(optionPanelBackground);
         optionPanelBackground.setLayout(optionPanelBackgroundLayout);
@@ -284,25 +282,31 @@ public class FrameJeu extends javax.swing.JFrame {
             .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
                 .addGroup(optionPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(optionPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleOption)
-                            .addComponent(menuBoutonOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
+                        .addComponent(menuBoutonOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(103, 103, 103)
                         .addComponent(optionPanelRound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(optionPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(titleOption1)
+                    .addContainerGap(383, Short.MAX_VALUE)))
         );
         optionPanelBackgroundLayout.setVerticalGroup(
             optionPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(titleOption, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(optionPanelRound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionPanelBackgroundLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(optionPanelRound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuBoutonOp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
+            .addGroup(optionPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(optionPanelBackgroundLayout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(titleOption1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(398, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout optionPanelLayout = new javax.swing.GroupLayout(optionPanel);
@@ -316,7 +320,7 @@ public class FrameJeu extends javax.swing.JFrame {
             .addComponent(optionPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanelParent.add(optionPanel, "card5");
+        jPanelParent.add(optionPanel, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,7 +339,24 @@ public class FrameJeu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
+    private void startBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBoutonActionPerformed
+        switchPanel(plateauPanel);
+    }//GEN-LAST:event_startBoutonActionPerformed
+
+    private void optionBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBoutonActionPerformed
+        switchPanel(optionPanel);
+        optionPanelRound.repaint();
+    }//GEN-LAST:event_optionBoutonActionPerformed
+
+    private void quitBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBoutonActionPerformed
+        dispose();
+    }//GEN-LAST:event_quitBoutonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        switchPanel(menuPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void menuBoutonOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBoutonOpActionPerformed
         switchPanel(menuPanel);
     }//GEN-LAST:event_menuBoutonOpActionPerformed
@@ -349,25 +370,13 @@ public class FrameJeu extends javax.swing.JFrame {
         setSize(Integer.parseInt(res[0]), Integer.parseInt(res[1]));
     }//GEN-LAST:event_leftArrowResActionPerformed
 
-    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        switchPanel(plateauPanel);
-    }//GEN-LAST:event_startButtonActionPerformed
-
-    private void optionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionButtonActionPerformed
-        switchPanel(optionPanel);
-    }//GEN-LAST:event_optionButtonActionPerformed
-
-    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
-        dispose();
-    }//GEN-LAST:event_quitButtonActionPerformed
-
-    private void rightArrowResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightArrowResActionPerformed
+    private void RightArrowResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightArrowResActionPerformed
         currentRes = (currentRes + 1)%resolution.length;
         resolutionNbLabel.setText(resolution[currentRes]);
         
         String[] res = (resolution[currentRes]).split("[x]");
         setSize(Integer.parseInt(res[0]), Integer.parseInt(res[1]));
-    }//GEN-LAST:event_rightArrowResActionPerformed
+    }//GEN-LAST:event_RightArrowResActionPerformed
 
     private void switchPanel (JPanel p){
         jPanelParent.removeAll();
@@ -385,8 +394,6 @@ public class FrameJeu extends javax.swing.JFrame {
         }
         return res;
     }
-    
-    
     
     /**
      * @param args the command line arguments
@@ -424,28 +431,27 @@ public class FrameJeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox fullscreenCheckBox;
+    private boundary.components.JButtonCustom RightArrowRes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanelParent;
     private javax.swing.JSlider jSlider1;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom leftArrowRes;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom menuBoutonOp;
+    private boundary.components.JButtonCustom leftArrowRes;
+    private boundary.components.JButtonCustom menuBoutonOp;
     private javax.swing.JPanel menuPanel;
-    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground menuPanelBackground;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom optionButton;
+    private boundary.components.JPanelWithBackground menuPanelBackground;
+    private boundary.components.JButtonCustom optionBouton;
     private javax.swing.JPanel optionPanel;
-    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground optionPanelBackground;
-    private com.ilu4.jeuxpirate.boundary.components.JPanelRound optionPanelRound;
-    private com.ilu4.jeuxpirate.boundary.Plateau plateau1;
+    private boundary.components.JPanelWithBackground optionPanelBackground;
+    private boundary.components.JPanelRound optionPanelRound;
     private javax.swing.JPanel plateauPanel;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom quitButton;
+    private boundary.components.JButtonCustom quitBouton;
     private javax.swing.JLabel resolutionLabel;
     private javax.swing.JLabel resolutionNbLabel;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom rightArrowRes;
-    private com.ilu4.jeuxpirate.boundary.components.JButtonCustom startButton;
+    private boundary.components.JButtonCustom startBouton;
     private javax.swing.JLabel titleMenu;
-    private javax.swing.JLabel titleOption;
+    private javax.swing.JLabel titleOption1;
     private javax.swing.JLabel volumeLabel;
-    private javax.swing.JLabel volumeLabel1;
     // End of variables declaration//GEN-END:variables
     private final String[] resolution ={"720x480", "1280x720", "1920x1080"};
     private int currentRes = 0;

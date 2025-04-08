@@ -2,10 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.ilu4.jeuxpirate.boundary;
-
-import java.io.File;
-import java.io.IOException;
+package boundary;
 
 /**
  *
@@ -29,73 +26,19 @@ public class Plateau extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelWithBackground1 = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
-        jLabel1 = new javax.swing.JLabel();
-        jCarte1 = new com.ilu4.jeuxpirate.boundary.components.JCarte();
-
-        try{
-            jPanelWithBackground1.setImage("Plateau.png");
-        }catch (IOException e) {
-            String userDirectory = new File("").getAbsolutePath();
-            System.out.print("Background not found"); // or handle the error
-        }
-        jPanelWithBackground1.repaint();
-
-        jLabel1.setText("In Plateau");
-
-        try{
-            jCarte1.setImage("Card1FrontAttack.png");
-        } catch (IOException e){
-            System.out.print("Card not found");
-        }
-
-        javax.swing.GroupLayout jCarte1Layout = new javax.swing.GroupLayout(jCarte1);
-        jCarte1.setLayout(jCarte1Layout);
-        jCarte1Layout.setHorizontalGroup(
-            jCarte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
-        );
-        jCarte1Layout.setVerticalGroup(
-            jCarte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanelWithBackground1Layout = new javax.swing.GroupLayout(jPanelWithBackground1);
-        jPanelWithBackground1.setLayout(jPanelWithBackground1Layout);
-        jPanelWithBackground1Layout.setHorizontalGroup(
-            jPanelWithBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWithBackground1Layout.createSequentialGroup()
-                .addGap(0, 377, Short.MAX_VALUE)
-                .addComponent(jCarte1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanelWithBackground1Layout.setVerticalGroup(
-            jPanelWithBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelWithBackground1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanelWithBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCarte1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(184, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelWithBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 556, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelWithBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.ilu4.jeuxpirate.boundary.components.JCarte jCarte1;
-    private javax.swing.JLabel jLabel1;
-    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground jPanelWithBackground1;
     // End of variables declaration//GEN-END:variables
 }
