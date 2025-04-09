@@ -1,7 +1,7 @@
 package com.ilu4.jeuxpirate.boundary.components;
 
 import com.ilu4.jeuxpirate.boundary.Plateau;
-import java.awt.BasicStroke;
+import com.ilu4.jeuxpirate.boundary.components.CartePopUp;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Graphics;
@@ -9,9 +9,12 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -21,8 +24,7 @@ public class JCarte extends javax.swing.JPanel {
     private boolean isFront = false;
     private Point origine = null;
     private boolean isSelected = false;
-    
-    
+    private CartePopUp popUp = null;
     /**
      * Creates new form JCarte
      */
@@ -31,9 +33,25 @@ public class JCarte extends javax.swing.JPanel {
         double w = getWidth();
         double h = w*1.4;
         setSize((int)w, (int)h);
+
     }
 
-    
+    public void setFrontCard(Image image) {
+        this.frontCard = image;
+    }
+
+    public void setBackCard(Image image) {
+        this.backCard = image;
+    }
+
+    public Image getImage() {
+        return isFront ? frontCard : backCard;
+    }
+
+    public void setIsFront(boolean front) {
+        this.isFront = front;
+    }
+
     @Override 
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -89,7 +107,6 @@ public void deplacerVers(int xFinal, int yFinal) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -111,11 +128,11 @@ public void deplacerVers(int xFinal, int yFinal) {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 134, Short.MAX_VALUE)
+            .addGap(0, 136, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 188, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,29 +177,28 @@ public void deplacerVers(int xFinal, int yFinal) {
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        if (evt.getClickCount() == 2 && isFront && frontCard != null) {
-        // Crée une fenêtre modale pour afficher la carte en grand
-        javax.swing.JDialog dialog = new javax.swing.JDialog();
-        dialog.setTitle("Carte en grand");
-        dialog.setModal(true);
-        dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+        if (evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt) && isFront && frontCard != null) {
+                    JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(JCarte.this);
 
-        // Redimensionne l'image (ex. 3x plus grande)
-        int width = frontCard.getWidth(this) * 3;
-        int height = frontCard.getHeight(this) * 3;
-        Image scaledImage = frontCard.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                    if (popUp != null) {
+                        popUp.dispose(); // si une précédente pop-up traîne
+                    }
 
-        // Met l'image dans un JLabel
-        javax.swing.JLabel label = new javax.swing.JLabel(new javax.swing.ImageIcon(scaledImage));
-        dialog.getContentPane().add(label);
+                    // Crée une image agrandie pour le zoom
+                    int width = frontCard.getWidth(JCarte.this);
+                    int height = frontCard.getHeight(JCarte.this);
+                    if (width <= 0 || height <= 0) {
+                        width = 100;
+                        height = 150;
+                    }
+                    Image scaledImage = frontCard.getScaledInstance(width * 3, height * 3, Image.SCALE_SMOOTH);
 
-        dialog.pack();
-        dialog.setLocationRelativeTo(this); // Centré sur la carte
-        dialog.setVisible(true);
-    }
+                    popUp = new CartePopUp(parentFrame, scaledImage);
+        }
+        }    
     }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-}
+

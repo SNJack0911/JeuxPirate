@@ -11,6 +11,7 @@ import com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction;
 import com.ilu4.jeuxpirate.boundary.components.ImagePanel;
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.io.File;
 import java.io.IOException;
 
 public class Plateau extends javax.swing.JPanel {
@@ -32,12 +33,11 @@ public class Plateau extends javax.swing.JPanel {
         gestionnaire.ajouterCarte(carte);
         gestionnaire.ajouterZone(zone_d_interaction1);
         setNbViesRestantes(4);
-        //imageJ1.setImage("com/ilu4/jeuxpirate/boundary/ressources/Icon12.png");
+        //imagePanelJ1.setImage("ressources/Icon12.png");
         //imageJ2.setImage("com/ilu4/jeuxpirate/boundary/ressources/Icon12.png");
         //PopJ1.setImage("com/ilu4/jeuxpirate/boundary/ressources/Icon12.png");
         //PopJ2.setImage("com/ilu4/jeuxpirate/boundary/ressources/Icon12.png");
         //imagePanel1.setImage("/com.ilu4.jeuxpirate.boundary.ressources/blackSmoke00.png");
-        // VOIR POURQUOI IL MET UNE IMAGE COMME ... JE SAIS PAS
     }
     
 
@@ -71,7 +71,6 @@ public class Plateau extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imageJ1 = new com.ilu4.jeuxpirate.boundary.components.ImagePanel();
         zone_d_interaction1 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
         jCarte2 = new com.ilu4.jeuxpirate.boundary.components.JCarte();
         jCarte1 = new com.ilu4.jeuxpirate.boundary.components.JCarte();
@@ -82,8 +81,6 @@ public class Plateau extends javax.swing.JPanel {
         point_de_vie6 = new com.ilu4.jeuxpirate.boundary.components.Point_de_vie();
         point_de_vie10 = new com.ilu4.jeuxpirate.boundary.components.Point_de_vie();
         zone_d_interaction2 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
-        PopJ2 = new com.ilu4.jeuxpirate.boundary.components.ImagePanel();
-        imageJ2 = new com.ilu4.jeuxpirate.boundary.components.ImagePanel();
         zone_d_interaction3 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
         zone_d_interaction5 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
         zone_d_interaction6 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
@@ -95,26 +92,14 @@ public class Plateau extends javax.swing.JPanel {
         point_de_vie7 = new com.ilu4.jeuxpirate.boundary.components.Point_de_vie();
         point_de_vie8 = new com.ilu4.jeuxpirate.boundary.components.Point_de_vie();
         point_de_vie11 = new com.ilu4.jeuxpirate.boundary.components.Point_de_vie();
-        PopJ1 = new com.ilu4.jeuxpirate.boundary.components.ImagePanel();
         zone_d_interaction4 = new com.ilu4.jeuxpirate.boundary.components.Zone_d_interaction();
         jLabel1 = new javax.swing.JLabel();
+        imageJ1 = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
+        imageJ2 = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
+        PopJ2 = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
+        PopJ1 = new com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        imageJ1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout imageJ1Layout = new javax.swing.GroupLayout(imageJ1);
-        imageJ1.setLayout(imageJ1Layout);
-        imageJ1Layout.setHorizontalGroup(
-            imageJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
-        );
-        imageJ1Layout.setVerticalGroup(
-            imageJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-        );
-
-        add(imageJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, 130, 150));
 
         zone_d_interaction1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -158,8 +143,6 @@ public class Plateau extends javax.swing.JPanel {
         zone_d_interaction1.add(jCarte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, 130));
 
         add(zone_d_interaction1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 460, 150));
-
-        JaugePoint_de_vie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout point_de_vie1Layout = new javax.swing.GroupLayout(point_de_vie1);
         point_de_vie1.setLayout(point_de_vie1Layout);
@@ -241,36 +224,6 @@ public class Plateau extends javax.swing.JPanel {
 
         add(zone_d_interaction2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 460, 150));
 
-        PopJ2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout PopJ2Layout = new javax.swing.GroupLayout(PopJ2);
-        PopJ2.setLayout(PopJ2Layout);
-        PopJ2Layout.setHorizontalGroup(
-            PopJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
-        );
-        PopJ2Layout.setVerticalGroup(
-            PopJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-        );
-
-        add(PopJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 100, -1));
-
-        imageJ2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout imageJ2Layout = new javax.swing.GroupLayout(imageJ2);
-        imageJ2.setLayout(imageJ2Layout);
-        imageJ2Layout.setHorizontalGroup(
-            imageJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
-        );
-        imageJ2Layout.setVerticalGroup(
-            imageJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-        );
-
-        add(imageJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, -1));
-
         zone_d_interaction3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout zone_d_interaction5Layout = new javax.swing.GroupLayout(zone_d_interaction5);
@@ -326,8 +279,6 @@ public class Plateau extends javax.swing.JPanel {
         zone_d_interaction3.add(zone_d_interaction8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 100, 160));
 
         add(zone_d_interaction3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 460, 180));
-
-        JaugePoint_de_vie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout point_de_vie3Layout = new javax.swing.GroupLayout(point_de_vie3);
         point_de_vie3.setLayout(point_de_vie3Layout);
@@ -396,21 +347,6 @@ public class Plateau extends javax.swing.JPanel {
 
         add(JaugePoint_de_vie1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 30, 150));
 
-        PopJ1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout PopJ1Layout = new javax.swing.GroupLayout(PopJ1);
-        PopJ1.setLayout(PopJ1Layout);
-        PopJ1Layout.setHorizontalGroup(
-            PopJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
-        );
-        PopJ1Layout.setVerticalGroup(
-            PopJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-        );
-
-        add(PopJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 100, 150));
-
         jLabel1.setText("Pioche");
 
         javax.swing.GroupLayout zone_d_interaction4Layout = new javax.swing.GroupLayout(zone_d_interaction4);
@@ -431,16 +367,100 @@ public class Plateau extends javax.swing.JPanel {
         );
 
         add(zone_d_interaction4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 180));
+
+        try{
+            imageJ1.setImage("IconJ1.png");
+        }catch (IOException e) {
+            String userDirectory = new File("").getAbsolutePath();
+            System.out.print("Background not found"); // or handle the error
+        }
+        imageJ1.repaint();
+
+        javax.swing.GroupLayout imageJ1Layout = new javax.swing.GroupLayout(imageJ1);
+        imageJ1.setLayout(imageJ1Layout);
+        imageJ1Layout.setHorizontalGroup(
+            imageJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        imageJ1Layout.setVerticalGroup(
+            imageJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        add(imageJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, 150));
+
+        try{
+            imageJ2.setImage("IconJ2.png");
+        }catch (IOException e) {
+            String userDirectory = new File("").getAbsolutePath();
+            System.out.print("Background not found"); // or handle the error
+        }
+        imageJ2.repaint();
+
+        javax.swing.GroupLayout imageJ2Layout = new javax.swing.GroupLayout(imageJ2);
+        imageJ2.setLayout(imageJ2Layout);
+        imageJ2Layout.setHorizontalGroup(
+            imageJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        imageJ2Layout.setVerticalGroup(
+            imageJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        add(imageJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
+
+        try{
+            PopJ2.setImage("Icon12.png");
+        }catch (IOException e) {
+            String userDirectory = new File("").getAbsolutePath();
+            System.out.print("Background not found"); // or handle the error
+        }
+        PopJ2.repaint();
+
+        javax.swing.GroupLayout PopJ2Layout = new javax.swing.GroupLayout(PopJ2);
+        PopJ2.setLayout(PopJ2Layout);
+        PopJ2Layout.setHorizontalGroup(
+            PopJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PopJ2Layout.setVerticalGroup(
+            PopJ2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        add(PopJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 100, 150));
+
+        try{
+            PopJ1.setImage("Icon23.png");
+        }catch (IOException e) {
+            String userDirectory = new File("").getAbsolutePath();
+            System.out.print("Background not found"); // or handle the error
+        }
+        PopJ1.repaint();
+
+        javax.swing.GroupLayout PopJ1Layout = new javax.swing.GroupLayout(PopJ1);
+        PopJ1.setLayout(PopJ1Layout);
+        PopJ1Layout.setHorizontalGroup(
+            PopJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PopJ1Layout.setVerticalGroup(
+            PopJ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        add(PopJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JaugePoint_de_vie;
     private javax.swing.JPanel JaugePoint_de_vie1;
-    private com.ilu4.jeuxpirate.boundary.components.ImagePanel PopJ1;
-    private com.ilu4.jeuxpirate.boundary.components.ImagePanel PopJ2;
-    private com.ilu4.jeuxpirate.boundary.components.ImagePanel imageJ1;
-    private com.ilu4.jeuxpirate.boundary.components.ImagePanel imageJ2;
+    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground PopJ1;
+    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground PopJ2;
+    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground imageJ1;
+    private com.ilu4.jeuxpirate.boundary.components.JPanelWithBackground imageJ2;
     private com.ilu4.jeuxpirate.boundary.components.JCarte jCarte1;
     private com.ilu4.jeuxpirate.boundary.components.JCarte jCarte2;
     private javax.swing.JLabel jLabel1;
