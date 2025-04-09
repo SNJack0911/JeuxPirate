@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Effet implements IEffet {
 
-    private Joueur player;
+    private Pirate player;
     private Map<String, Integer> effet;
 
     @Override
