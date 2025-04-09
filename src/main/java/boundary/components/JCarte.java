@@ -58,8 +58,8 @@ public class JCarte extends javax.swing.JPanel {
     }
     
     public void setImage(String cardName) throws IOException {
-        backCard = ImageIO.read(new File("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/" + "Card1Back.png"));
-        frontCard = ImageIO.read(new File("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/" + cardName));
+        backCard = ImageIO.read(new File("src/main/java/boundary/ressources/" + "Card1Back.png"));
+        frontCard = ImageIO.read(new File("src/main/java/boundary/ressources/" + cardName));
     }
     
     

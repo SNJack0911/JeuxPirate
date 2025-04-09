@@ -40,7 +40,7 @@ public class JPanelWithBackground extends JPanel {
   }
   
   public void setImage(String fileName) throws IOException {
-    backgroundImage = ImageIO.read(new File("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/" + fileName));
+    backgroundImage = ImageIO.read(new File("src/main/java/boundary/ressources/" + fileName));
 //backgroundImage = ImageIO.read(new File(fileName));
     
   }

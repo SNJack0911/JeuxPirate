@@ -71,10 +71,10 @@ public class FrameJeu extends javax.swing.JFrame {
         menuPanel.setToolTipText("");
 
         try{
-            menuPanelBackground.setImage("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png");
+            menuPanelBackground.setImage("PiratesBackground1.png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
-            System.out.print("Background not found"); // or handle the error
+            System.out.print("Background not found\n"); // or handle the error
         }
         menuPanelBackground.repaint();
 
@@ -197,10 +197,10 @@ public class FrameJeu extends javax.swing.JFrame {
         jPanelParent.add(plateauPanel, "card3");
 
         try{
-            optionPanelBackground.setImage("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/pirates_background.png");
+            optionPanelBackground.setImage("PiratesBackground1.png");
         }catch (IOException e) {
             String userDirectory = new File("").getAbsolutePath();
-            System.out.print("Background not found"); // or handle the error
+            System.out.print("Background not found\n"); // or handle the error
         }
         optionPanelBackground.repaint();
 
@@ -388,7 +388,7 @@ public class FrameJeu extends javax.swing.JFrame {
     private Image getIcon(String filename){
         Image res = null;
         try{
-            res  = ImageIO.read(new File("src/main/java/com/ilu4/jeuxpirate/boundary/ressources/" + filename));
+            res  = ImageIO.read(new File("src/main/java/boundary/ressources/" + filename));
         }catch(IOException e){
             System.out.print("Icon not found");
         }
