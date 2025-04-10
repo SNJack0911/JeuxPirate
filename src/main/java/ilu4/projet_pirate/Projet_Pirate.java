@@ -1,5 +1,4 @@
 package ilu4.projet_pirate;
-import Vue.NewJFrame;
 import Vue.Vue;
 import javax.swing.*;
 import javax.swing.SwingUtilities;

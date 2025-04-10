@@ -1,7 +1,7 @@
 package components;
 
 import Vue.Vue;
-import component_manager.CarteStructurel;
+//import component_manager.CarteStructurel;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
@@ -11,8 +11,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -133,7 +131,6 @@ public void deplacerVers(int xFinal, int yFinal) {
     timer.start();
 }
 
-
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -207,7 +204,7 @@ public void deplacerVers(int xFinal, int yFinal) {
         */
         Container root = SwingUtilities.getWindowAncestor(this);
         if (root instanceof Vue vue) {
-             vue.getGestionnaire().verifierToutesZones(this); // C’est bien la méthode du gestionnaire
+            vue.getGestionnaire().verifierToutesZones(this); // C’est bien la méthode du gestionnaire
         }
 //        particule.spawnParticules();
 	//setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));

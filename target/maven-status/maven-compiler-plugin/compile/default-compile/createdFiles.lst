@@ -9,14 +9,11 @@ components\ParticulePanel.class
 model\TimeModel.class
 components\Point_de_vie.class
 event\TimeModelListener.class
-Vue\NewJFrame$1.class
 components\Carte_Ihm$1.class
 component_manager\GestionnaireCartes.class
-components\VueJeu.class
 component_manager\Particule.class
 event\TimeModelEvent.class
 components\Carte_Ihm.class
 ilu4\projet_pirate\Projet_Pirate.class
-Vue\NewJFrame.class
 component_manager\GestionnaireEffets.class
 components\ImagePanel.class

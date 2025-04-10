@@ -1,16 +1,11 @@
 package Vue;
 
-import component_manager.CarteStructurel;
-import component_manager.CategorieCarte;
 import component_manager.GestionnaireCartes;
-import component_manager.GestionnaireEffets;
 import components.Carte_Ihm;
 import components.Point_de_vie;
 import components.Zone_d_interaction;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -18,8 +13,8 @@ import java.awt.Rectangle;
 public class Vue extends javax.swing.JFrame {
 
     private Zone_d_interaction zoneInteraction = null;
-    private Carte_Ihm carte ; 
-    private GestionnaireCartes gestionnaire = new GestionnaireCartes();
+    private final Carte_Ihm carte ; 
+    private final GestionnaireCartes gestionnaire = new GestionnaireCartes();
     //private GestionnaireEffets effets = new GestionnaireEffets();
 
     public Vue() {
@@ -30,9 +25,6 @@ public class Vue extends javax.swing.JFrame {
 	setNbViesRestantes(4);
         imageEnnemie.setImage("/les_pngBlackSmoke/blackSmoke00.png");
         gestionnaire.ajouterCarte(carte_1);
-
-// Ajouter la carte graphique à un composant parent, etc.
-
         //gestionnaire.affecterEffetTrainée(carte_1);
         gestionnaire.ajouterCarte(carte_2);
         //gestionnaire.affecterEffetTrainée(carte_2);
@@ -53,8 +45,8 @@ public class Vue extends javax.swing.JFrame {
     }
 
     public GestionnaireCartes getGestionnaire() {
-            return gestionnaire;
-        }
+        return gestionnaire;
+    }
 
     public void verifierZoneInteraction(Rectangle boundsCarte) {
 	zone_d_interaction1.verifierCarte(carte);
